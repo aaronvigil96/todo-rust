@@ -3,7 +3,6 @@ use std::io::{self, stdin};
 struct Task {
     id: u32,
     description: String,
-    finish: bool
 }
 
 fn main() {
@@ -75,14 +74,11 @@ fn create_task(tasks: &Vec<Task>) -> Task {
     return Task {
         id,
         description,
-        finish: false
     }
 }
 
 fn delete_task(tasks: &mut Vec<Task>) {
-
     let id = valid_id();
-
     match tasks.iter().position(|task| task.id == id){
         Some(index) => {
             tasks.remove(index);
